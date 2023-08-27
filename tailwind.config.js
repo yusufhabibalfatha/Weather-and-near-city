@@ -3,7 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts, tsx}"],
   theme: {
     extend: {
-      fontFamily: ['Poppins'],
+      fontFamily: {
+        base : ['Poppins']
+      },
       colors: {
         // base_one: '#606C5D',
         // base_two: '#FFF4F4',

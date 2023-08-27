@@ -2,8 +2,8 @@ import SearchInput from "./SearchInput";
 
 const Header = ({setUserCity}) => {
     return (
-        <header className={tailwind.header}>
-            <h1>Weather App</h1>
+        <header className='flex items-center gap-4 justify-center flex-col'>
+            <h1 className="text-2xl font-bold ">Weather App</h1>
             <SearchInput setUserCity={setUserCity}/>
             {/* error components */}
         </header>

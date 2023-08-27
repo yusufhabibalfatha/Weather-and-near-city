@@ -12,24 +12,21 @@ const Main = ({userCity}) => {
             const url = `https://api.weatherapi.com/v1/current.json?key=${key_api}&q=${default_city}&aqi=no`
             try{
                 const res = await fetch(url)
-                console.log('fetch jalan')
                 const data = await res.json()
-                console.log('data ', data)
                 setCity(data.location)
                 setWeather(data.current)
             }catch(err){
                 console.log('error main.jsx ', err)
             }
         }
-        console.log('use effect jalan')
         fetchWeather()
     }, [userCity])
     return (
-        <main className="flex bg-red-100 h-5/6">
+        <main className="flex bg-yellow-100 h-5/6 w-full">
             {city && (
                 <>
                     <NearCity currentCity={city} positionContent='left' />
-                    <div className="bg-blue-100 w-1/2 mx-auto">
+                    <div className="bg-blue-100 w-full mx-auto">
                         <p className="text-center">CONTENT CENTER</p>
                         <div className="content">
                             <h3>{city.name}</h3>

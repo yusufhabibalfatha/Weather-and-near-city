@@ -34,13 +34,11 @@ const NearCity = ({currentCity, positionContent}) => {
             setCity(data.location)
             setWeather(data.current)
         }
-        setTimeout(()=>{
-            fetchNearCity()
-        }, positionContent == 'left' ? 1000 : 3000)
+        fetchNearCity()
     }, [currentCity])
 
     return (
-        <div className="near-city-one bg-purple-200 w-full">
+        <div className="near-city-one bg-purple-200 w-fit">
             <p>CONTENT {positionContent}</p>
             {nearCurrentCity && (
                 <>

@@ -6,7 +6,7 @@ import Main from "./components/Main";
 function App() {
   const [userCity, setUserCity] = useState('jakarta')
   return (
-    <div className="App">
+    <div className="App font-base">
       {/* ---Loading component */}
       <div className="bg-base_four h-screen">
         <Header setUserCity={setUserCity}/>
