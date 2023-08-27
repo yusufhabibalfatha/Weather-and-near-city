@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import Header from "./components/Header";
 import Main from "./components/Main";
 
@@ -8,6 +9,7 @@ function App() {
       <div className="bg-base_four h-screen">
         <Header />
         <Main />
+        <Footer />
       </div>
     </div>
   );
