@@ -1,8 +1,13 @@
+import Header from "./components/Header";
+
 function App() {
   return (
-    <>
-      <p>Weather app with react js</p>
-    </>
+    <div className="App">
+      {/* ---Loading component */}
+      <div className="bg-base_four h-screen">
+        <Header />
+      </div>
+    </div>
   );
 }
 
