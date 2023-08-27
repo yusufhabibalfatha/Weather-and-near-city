@@ -1,12 +1,17 @@
 import {BiSearch} from 'react-icons/bi'
-const SearchInput = () => {
+const SearchInput = ({setUserCity}) => {
+    const handleSubmit =(e)=>{
+        e.preventDefault()
+        setUserCity(e.target.search.value)
+        console.log(e.target.search.value)
+    }
     return (
         <div className={tailwind.search_input}>
             <label htmlFor="search">Search :</label>
-            <div className={tailwind.div}>
-                <input type="text" name="search" placeholder="city region country" autoComplete="off"/>
-                <BiSearch />
-            </div>
+            <form className={tailwind.form} onSubmit={(e)=>handleSubmit(e)}>
+                <input type="text" name="search" placeholder="city, region..." autoComplete="off"/>
+                <button><BiSearch /></button>
+            </form>
         </div>
     );
 }
@@ -15,5 +20,5 @@ export default SearchInput;
 
 const tailwind = {
     search_input : 'search-input bg-blue-100 flex flex-col',
-    div : 'bg-blue-200 flex'
+    form : 'bg-blue-200 flex'
 }

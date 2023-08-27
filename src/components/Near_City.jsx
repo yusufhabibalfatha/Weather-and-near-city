@@ -10,17 +10,20 @@ const NearCity = ({currentCity, positionContent}) => {
             const key_api = '04099e38a7msh82c1ed5da644150p16653djsne44c569195a1';
             const hostAPI = 'geocodeapi.p.rapidapi.com';
             const url = `https://geocodeapi.p.rapidapi.com/GetNearestCities?latitude=${currentCity.lat}&longitude=${currentCity.lon}&range=0`;
-            
-            const res = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': key_api,
-                    'X-RapidAPI-Host': hostAPI
-                }
-            })
-            const data = await res.json()
-            setNearCurrentCity(data[indexData])
-            fetchWeather(data[indexData])
+            try{
+                const res = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'X-RapidAPI-Key': key_api,
+                        'X-RapidAPI-Host': hostAPI
+                    }
+                })
+                const data = await res.json()
+                setNearCurrentCity(data[indexData])
+                fetchWeather(data[indexData])
+            }catch(err){
+                console.log('err ', err)
+            }
         }
         const fetchWeather = async (city) => {
             const key_api = '8e537e7385aa49e58a875612231306'
@@ -30,26 +33,34 @@ const NearCity = ({currentCity, positionContent}) => {
             const data = await res.json()
             setCity(data.location)
             setWeather(data.current)
-            console.log('data => ', data)
         }
-        fetchNearCity()
-    }, [])
+        setTimeout(()=>{
+            fetchNearCity()
+        }, positionContent == 'left' ? 1000 : 3000)
+    }, [currentCity])
 
     return (
         <div className="near-city-one bg-purple-200 w-full">
             <p>CONTENT {positionContent}</p>
-            {nearCurrentCity && <p>{nearCurrentCity.City}</p>}
-            {weather && <div className="content">
-                <h3>{city.name}</h3>
-                <div className="region">
-                    <p>{city.region}, {city.country}</p>
-                </div>
-                <div className="weather">
-                    <p>{weather.condition.text}</p>
-                    <h5>{weather.temp_c}° C</h5>
-                    <h5>{weather.temp_f}° F</h5>
-                </div>
-            </div>}
+            {nearCurrentCity && (
+                <>
+                    <p>{nearCurrentCity.City}</p>
+                    <div className="content">
+                        <h3>{city.name}</h3>
+                        <div className="region">
+                            <p>{city.region}, {city.country}</p>
+                        </div>
+                        {weather && (
+                        <div className="weather">
+                            <p>{weather.condition.text}</p>
+                            <h5>{weather.temp_c}° C</h5>
+                            <h5>{weather.temp_f}° F</h5>
+                        </div>
+                        )}
+                    </div>    
+                </>
+            )}
+            
         </div>
     );
 }

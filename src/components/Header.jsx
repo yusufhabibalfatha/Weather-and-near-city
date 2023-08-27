@@ -1,10 +1,10 @@
 import SearchInput from "./SearchInput";
 
-const Header = () => {
+const Header = ({setUserCity}) => {
     return (
         <header className={tailwind.header}>
             <h1>Weather App</h1>
-            <SearchInput />
+            <SearchInput setUserCity={setUserCity}/>
             {/* error components */}
         </header>
     );
