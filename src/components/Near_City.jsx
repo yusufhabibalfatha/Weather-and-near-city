@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { getDistanceAndCompass } from "../Utility";
 
 const NearCity = ({currentCity, positionContent}) => {
     const [nearCurrentCity, setNearCurrentCity] = useState(false)
     const [city, setCity] = useState(false)
     const [weather, setWeather] = useState()
+    const [distance, setDistance] = useState()
     let indexData = positionContent == 'left' ? 2 : 3
     useEffect(() => {
         const fetchNearCity = async () => {
@@ -20,6 +22,8 @@ const NearCity = ({currentCity, positionContent}) => {
                 })
                 const data = await res.json()
                 setNearCurrentCity(data[indexData])
+                const dataDistance = getDistanceAndCompass(data[indexData])
+                setDistance(dataDistance)
                 fetchWeather(data[indexData])
             }catch(err){
                 console.log('err ', err)
@@ -42,6 +46,12 @@ const NearCity = ({currentCity, positionContent}) => {
             {nearCurrentCity && (
                 <div className="content flex justify-between flex-col bg-blue-100 h-full">
                     <div className="region">
+                        {distance && (
+                        <div className="near-you font-normal text-xs flex justify-between">
+                            <p>{ distance.distance } km</p>
+                            <p>{ distance.compass }</p>
+                        </div>
+                        )}
                         <h3 className="uppercase text-xl">{city.name}</h3>
                         <p className="text-slate-600 text-xs">{city.region}, {city.country}</p>
                     </div>
