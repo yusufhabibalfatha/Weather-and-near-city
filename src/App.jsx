@@ -6,11 +6,13 @@ import Main from "./components/Main";
 function App() {
   const [userCity, setUserCity] = useState('jakarta')
   return (
-    <div className="App font-base">
+    <div className="App font-base overflow-x-hidden w-screen h-screen bg-base_four">
       {/* ---Loading component */}
-      <div className="bg-base_four h-screen">
+      <div className="min-h-screen grid grid-rows-[min-content_auto_min-content] pt-8">
         <Header setUserCity={setUserCity}/>
-        {/* <Main state_city={{city, setCity}}/> */}
+        {/* <div className="h-screen w-40">
+          <div className="bg-black text-white ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, porro.</div>
+        </div> */}
         <Main userCity={userCity} />
         <Footer />
       </div>

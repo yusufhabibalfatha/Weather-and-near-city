@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import NearCity from "./Near_City";
+import City from "./City";
 
 const Main = ({userCity}) => {
     const [city, setCity] = useState()
@@ -22,26 +23,11 @@ const Main = ({userCity}) => {
         fetchWeather()
     }, [userCity])
     return (
-        <main className="flex bg-yellow-100 h-5/6 w-full">
+        <main className="flex flex-col md:flex-row items-center md:items-start justify-center w-full h-full gap-4 p-8">
             {city && (
                 <>
                     <NearCity currentCity={city} positionContent='left' />
-                    <div className="bg-blue-100 w-full mx-auto">
-                        <p className="text-center">CONTENT CENTER</p>
-                        <div className="content">
-                            <h3>{city.name}</h3>
-                            <div className="region">
-                                <p>{city.region}, {city.country}</p>
-                            </div>
-                            {weather && (
-                                <div className="weather">
-                                    <p>{weather.condition.text}</p>
-                                    <h5>{weather.temp_c}° C</h5>
-                                    <h5>{weather.temp_f}° F</h5>
-                                </div>
-                            )}
-                        </div>
-                    </div>
+                    <City city={city} weather={weather}/>
                     <NearCity currentCity={city} positionContent='right' />
                 </>
         )}

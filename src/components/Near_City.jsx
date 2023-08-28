@@ -38,28 +38,23 @@ const NearCity = ({currentCity, positionContent}) => {
     }, [currentCity])
 
     return (
-        <div className="near-city-one bg-purple-200 w-fit">
-            <p>CONTENT {positionContent}</p>
+        <div className="sm:min-w-0 sm:w-60 min-w-full min-h-40 md:min-h-0 md:h-60 bg-red-100 border-4 border-black font-bold flex flex-col py-4 px-8">
             {nearCurrentCity && (
-                <>
-                    <p>{nearCurrentCity.City}</p>
-                    <div className="content">
-                        <h3>{city.name}</h3>
-                        <div className="region">
-                            <p>{city.region}, {city.country}</p>
-                        </div>
-                        {weather && (
+                <div className="content flex justify-between flex-col bg-blue-100 h-full">
+                    <div className="region">
+                        <h3 className="uppercase text-xl">{city.name}</h3>
+                        <p className="text-slate-600 text-xs">{city.region}, {city.country}</p>
+                    </div>
+                    {/* --- WEATHER SVG --- */}
+                    {weather && (
                         <div className="weather">
-                            <p>{weather.condition.text}</p>
-                            <h5>{weather.temp_c}° C</h5>
-                            <h5>{weather.temp_f}° F</h5>
+                            <p className="text-sm text-blue-500">{weather.condition.text}</p>
+                            <h5 className="text-xl">{weather.temp_c}° C <span className="text-sm ">/ {weather.temp_f}° F</span></h5>
                         </div>
-                        )}
-                    </div>    
-                </>
+                    )}
+                </div>
             )}
-            
-        </div>
+            </div>
     );
 }
  
