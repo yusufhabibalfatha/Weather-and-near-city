@@ -10,9 +10,6 @@ function App() {
       {/* ---Loading component */}
       <div className="min-h-screen grid grid-rows-[min-content_auto_min-content] pt-8">
         <Header setUserCity={setUserCity}/>
-        {/* <div className="h-screen w-40">
-          <div className="bg-black text-white ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, porro.</div>
-        </div> */}
         <Main userCity={userCity} />
         <Footer />
       </div>
