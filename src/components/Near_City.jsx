@@ -42,9 +42,9 @@ const NearCity = ({currentCity, positionContent}) => {
     }, [currentCity])
 
     return (
-        <div className="sm:min-w-0 sm:w-60 min-w-full min-h-40 md:min-h-0 md:h-60 bg-red-100 border-4 border-black font-bold flex flex-col py-4 px-8 mt-8">
+        <div className="sm:min-w-0 sm:w-60 min-w-full min-h-40 md:min-h-0 md:h-60  border-4 border-black font-bold flex flex-col py-4 px-8 mt-8">
             {nearCurrentCity && (
-                <div className="content flex justify-between flex-col bg-blue-100 h-full">
+                <div className="content flex justify-between flex-col  h-full">
                     <div className="region">
                         {distance && (
                         <div className="near-you font-normal text-xs flex justify-between">
