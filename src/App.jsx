@@ -7,7 +7,7 @@ function App() {
   const [userCity, setUserCity] = useState('jakarta')
   return (
     <div className="font-base overflow-x-hidden w-screen h-screen bg-base_four">
-      <div className="min-h-screen grid grid-rows-[min-content_auto_min-content] pt-8">
+      <div className="min-hp-screen grid grid-rows-[min-content_auto_min-content] pt-8">
         <Header setUserCity={setUserCity}/>
         <Main userCity={userCity} />
         <Footer />
