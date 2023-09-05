@@ -1,0 +1,1 @@
+import{j as e}from"./index-0ea9a433.js";const s=()=>e.jsx("footer",{children:e.jsxs("p",{className:"p-4 text-center text-xs",children:["Icons are licenses under ",e.jsx("a",{href:"https://creativecommons.org/licenses/by/4.0/",children:"Creative Commons Attribution 4.0 International Public License."})]})});export{s as default};
