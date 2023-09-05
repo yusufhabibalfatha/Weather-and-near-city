@@ -65,7 +65,7 @@ const NearCity = ({currentCity, positionContent}) => {
                     )}
                 </div>
             )}
-            </div>
+        </div>
     );
 }
  

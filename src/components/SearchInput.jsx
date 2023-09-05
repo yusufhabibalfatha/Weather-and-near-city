@@ -1,6 +1,7 @@
 import {BiSearch} from 'react-icons/bi'
-const SearchInput = ({setUserCity}) => {
+const SearchInput = ({setUserCity, setCity}) => {
     const handleSubmit =(e)=>{
+        setCity(false)
         e.preventDefault()
         setUserCity(e.target.search.value)
     }
@@ -15,8 +16,3 @@ const SearchInput = ({setUserCity}) => {
 }
  
 export default SearchInput;
-
-const tailwind = {
-    search_input : 'search-input bg-blue-100 flex flex-col',
-    form : 'bg-blue-200 flex'
-}

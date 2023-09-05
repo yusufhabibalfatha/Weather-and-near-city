@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import NearCity from "./Near_City";
 import City from "./City";
 
-const Main = ({userCity}) => {
-    const [city, setCity] = useState()
+const Main = ({userCity, city, setCity}) => {
     const [weather, setWeather] = useState()
     useEffect(() => {
         const fetchWeather = async () => {
@@ -23,13 +22,9 @@ const Main = ({userCity}) => {
     }, [userCity])
     return (
         <main className="flex flex-col md:flex-row items-center md:items-start justify-center w-full h-full gap-4 p-8">
-            {city && (
-                <>
-                    <NearCity currentCity={city} positionContent='left' />
-                    <City city={city} weather={weather}/>
-                    <NearCity currentCity={city} positionContent='right' />
-                </>
-        )}
+            {city && <NearCity currentCity={city} positionContent='left' />}
+            <City city={city} weather={weather}/>
+            {city && <NearCity currentCity={city} positionContent='right' />}
         </main>
     );
 }
