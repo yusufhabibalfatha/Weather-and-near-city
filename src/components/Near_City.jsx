@@ -13,6 +13,7 @@ const NearCity = ({currentCity, positionContent}) => {
             const key_api = '04099e38a7msh82c1ed5da644150p16653djsne44c569195a1';
             const hostAPI = 'geocodeapi.p.rapidapi.com';
             const url = `https://geocodeapi.p.rapidapi.com/GetNearestCities?latitude=${currentCity.lat}&longitude=${currentCity.lon}&range=0`;
+            console.log('near city => ', url)
             try{
                 const res = await fetch(url, {
                     method: 'GET',
@@ -34,6 +35,7 @@ const NearCity = ({currentCity, positionContent}) => {
             const key_api = '8e537e7385aa49e58a875612231306'
             const city_location = `${city.Latitude},${city.Longitude}`
             const url = `https://api.weatherapi.com/v1/current.json?key=${key_api}&q=${city_location}&aqi=no`
+            console.log('weather near => ', url)
             const res = await fetch(url)
             const data = await res.json()
             setCity(data.location)
@@ -45,10 +47,10 @@ const NearCity = ({currentCity, positionContent}) => {
     return (
         <div className="min-w-0 w-60 min-h-40 md:min-h-60 border-4 border-black font-bold flex flex-col py-4 px-8 mt-8">
             {nearCurrentCity && (
-                <div className="content flex justify-between items-center sm:items-stretch flex-col  h-full">
-                    <div className="region">
+                <div className="flex justify-between items-center sm:items-stretch flex-col h-full">
+                    <div>
                         {distance && (
-                        <div className="near-you font-normal text-xs flex justify-between">
+                        <div className="font-normal text-xs flex justify-between">
                             <p>{ distance.distance } km</p>
                             <p>{ distance.compass }</p>
                         </div>
@@ -56,12 +58,11 @@ const NearCity = ({currentCity, positionContent}) => {
                         <h3 className="uppercase text-xl">{city.name}</h3>
                         <p className="text-slate-600 text-xs">{city.region}, {city.country}</p>
                     </div>
-                    {/* --- WEATHER SVG --- */}
                     {weather && <WeatherSVG code={weather.condition.code} alt_img={city.name + 'weather'}/>}
                     {weather && (
-                        <div className="weather">
+                        <div>
                             <p className="text-sm text-blue-500">{weather.condition.text}</p>
-                            <h5 className="text-xl">{weather.temp_c}° C <span className="text-sm ">/ {weather.temp_f}° F</span></h5>
+                            <h5 className="text-xl">{weather.temp_c}° C <span className="text-sm">/ {weather.temp_f}° F</span></h5>
                         </div>
                     )}
                 </div>

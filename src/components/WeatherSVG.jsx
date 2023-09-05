@@ -11,15 +11,15 @@ const WeatherSVG = ({ code, alt_img }) => {
     const rainEasy = [1069, 1249, 1252];
     const snowEasy = [1261, 1264];
     
-    if( thunder.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Weather-and-near-city/main/src/asset/thunder.svg'
-    if( cloudy.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Weather-and-near-city/main/src/asset/cloudy.svg'
-    if( code == sunny ) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Weather-and-near-city/main/src/asset/day.svg'
-    if( rainEasy.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Weather-and-near-city/main/src/asset/rainy-1.svg'
-    if( rain.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Weather-and-near-city/main/src/asset/rainy-2.svg'
-    if( rainBad.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Weather-and-near-city/main/src/asset/rainy-3.svg'
-    if( snowEasy.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Weather-and-near-city/main/src/asset/snowy-1.svg'
-    if( snow.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Weather-and-near-city/main/src/asset/snowy-2.svg'
-    if( snowBad.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Weather-and-near-city/main/src/asset/snowy-3.svg'
+    if( thunder.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Assets/main/Weather%20Icon/animated/thunder.svg'
+    if( cloudy.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Assets/main/Weather%20Icon/animated/cloudy.svg'
+    if( code == sunny ) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Assets/main/Weather%20Icon/animated/day.svg'
+    if( rainEasy.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Assets/main/Weather%20Icon/animated/rainy-1.svg'
+    if( rain.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Assets/main/Weather%20Icon/animated/rainy-2.svg'
+    if( rainBad.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Assets/main/Weather%20Icon/animated/rainy-3.svg'
+    if( snowEasy.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Assets/main/Weather%20Icon/animated/snowy-1.svg'
+    if( snow.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Assets/main/Weather%20Icon/animated/snowy-2.svg'
+    if( snowBad.includes(code)) source = 'https://raw.githubusercontent.com/yusufhabibalfatha/Assets/main/Weather%20Icon/animated/snowy-3.svg'
 
     return (
         <img src={source} alt={alt_img}/>

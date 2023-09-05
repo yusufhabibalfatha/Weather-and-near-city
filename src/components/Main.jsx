@@ -5,12 +5,12 @@ import City from "./City";
 const Main = ({userCity}) => {
     const [city, setCity] = useState()
     const [weather, setWeather] = useState()
-    const [error, setError] = useState(false)
     useEffect(() => {
         const fetchWeather = async () => {
             const key_api = '8e537e7385aa49e58a875612231306'
             const default_city = userCity
             const url = `https://api.weatherapi.com/v1/current.json?key=${key_api}&q=${default_city}&aqi=no`
+            console.log('url => ', url)
             try{
                 const res = await fetch(url)
                 const data = await res.json()
@@ -31,7 +31,6 @@ const Main = ({userCity}) => {
                     <NearCity currentCity={city} positionContent='right' />
                 </>
         )}
-            {error && <p>ada error = {error}</p>}
         </main>
     );
 }
