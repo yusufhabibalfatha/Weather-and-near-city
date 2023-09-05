@@ -10,7 +10,6 @@ const Main = ({userCity}) => {
             const key_api = '8e537e7385aa49e58a875612231306'
             const default_city = userCity
             const url = `https://api.weatherapi.com/v1/current.json?key=${key_api}&q=${default_city}&aqi=no`
-            console.log('url => ', url)
             try{
                 const res = await fetch(url)
                 const data = await res.json()

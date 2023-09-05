@@ -13,7 +13,6 @@ const NearCity = ({currentCity, positionContent}) => {
             const key_api = '04099e38a7msh82c1ed5da644150p16653djsne44c569195a1';
             const hostAPI = 'geocodeapi.p.rapidapi.com';
             const url = `https://geocodeapi.p.rapidapi.com/GetNearestCities?latitude=${currentCity.lat}&longitude=${currentCity.lon}&range=0`;
-            console.log('near city => ', url)
             try{
                 const res = await fetch(url, {
                     method: 'GET',
@@ -35,7 +34,6 @@ const NearCity = ({currentCity, positionContent}) => {
             const key_api = '8e537e7385aa49e58a875612231306'
             const city_location = `${city.Latitude},${city.Longitude}`
             const url = `https://api.weatherapi.com/v1/current.json?key=${key_api}&q=${city_location}&aqi=no`
-            console.log('weather near => ', url)
             const res = await fetch(url)
             const data = await res.json()
             setCity(data.location)
